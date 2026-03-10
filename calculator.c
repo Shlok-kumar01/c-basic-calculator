@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// define colors
-#define BLUE "\033[34m"
+// DEFINE COLOR
+#define BLUE "\033[1;34m"
 #define GREEN "\033[32m"
 #define RED "\033[31m"
-#define YELLOW "\033[33m"
+#define YELLOW "\033[1;33m"
 #define RESET "\033[0m"
 
-// function prototype
+// FUNCTIONS PROTOTYPE
 void header();
 void choices();
 void pause();
@@ -17,31 +17,38 @@ int main()
 {
     int choice;
     float num1, num2, result;
-    header();
-
     char history[10][30];
     char op[] = "+-*/";
-    int i = 0;
-    int count = 1;
+    int count = 0;
+
+    // PRINT HEADER
+    header();
 
     while (1)
     {
         choices();
 
-        //printing history
+        // PRINT HISTORY
         printf(YELLOW "          HISTORY     \n");
         printf("---------------------------\n" RESET);
-        for (int i = 0; i < count; i++)
-        {
 
-            printf(GREEN "%d) %s \n" RESET, i, history[i]);
+        if (count == 0)
+        {
+            printf("(Empty)\n");
+        }
+        else
+        {
+            for (int i = 0; i < count; i++)
+            {
+                printf(GREEN "%d) %s \n" RESET, i + 1, history[i]);
+            }
         }
 
-        // choose option
+        // CHOOSE OPTION
         printf("Choose an option: ");
         scanf("%d", &choice);
 
-        // choice condition
+        // CHOICES CONDITON
         if (choice < 1 || choice > 5)
         {
             printf(RED "INVALID INPUT..." RESET);
@@ -52,51 +59,49 @@ int main()
             return 0;
         }
 
-        // taking num input
+        // READ FIRST AND SECOND NUMBER
         printf("enter first num: ");
         scanf("%f", &num1);
         printf("enter second num: ");
         scanf("%f", &num2);
-        
-        //
+
+        // BASIC OPERATION CONDITION
         if (basic_operation(choice, num1, num2, &result) != 1)
         {
             printf(RED "Can not devided by zero \n" RESET);
             return 0;
         }
 
-        //store result in history 
+        // STORE RESULT IN HISTORY
         if (count < 10)
         {
             sprintf(history[count], "%.2f %c %.2f = %.2f", num1, op[choice - 1], num2, result);
             count++;
         }
-       
 
-        // print result
+        // PRINT RESULT
         printf(GREEN "Result: %.2f \n\n" RESET, result);
-
-        // pause the screen
+        // PAUSE THE SCREEN
         pause();
     }
     return 0;
 }
 
-//  Header
+//  CALCULATOR HEADER
 void header()
 {
-    printf(BLUE "\t\t\t\t |---------------------------|\n");
+    printf(BLUE "\t\t\t\t :---------------------------:\n");
     printf("\t\t\t\t |      Basic Calculator     |\n");
-    printf("\t\t\t\t |---------------------------|\n" RESET);
+    printf("\t\t\t\t :---------------------------:\n" RESET);
 }
 
-// user choices
+// PRINT CHOICES
 void choices()
 {
     printf(" 1. Addition \n 2. Subtraction \n 3. Multiplication \n 4. Division\n 5. Exit\n");
 }
 
-// pause the screen
+// PAUSE THE SCREEN
 void pause()
 {
     printf("Press enter to continue: ");
@@ -104,7 +109,7 @@ void pause()
     getchar();
 }
 
-// basic operations
+// BASIC OPERATIONS
 int basic_operation(int choice, float num1, float num2, float *result)
 {
     switch (choice)
