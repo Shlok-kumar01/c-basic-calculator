@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 // DEFINE COLOR
-#define BLUE "\033[1;34m"
+#define BLUE "\033[7;34m"
 #define GREEN "\033[32m"
 #define RED "\033[31m"
 #define YELLOW "\033[1;33m"
@@ -22,11 +22,11 @@ int main()
     char op[] = "+-*/";
     int count = 0;
 
-    // PRINT HEADER
-    header();
-
     while (1)
     {
+        // PRINT HEADER
+        header();
+        // PRINT CHOICES
         choices();
 
         // PRINT HISTORY
@@ -93,15 +93,15 @@ int main()
 //  CALCULATOR HEADER
 void header()
 {
-    printf(BLUE "\t\t\t\t :---------------------------:\n");
-    printf("\t\t\t\t |      Basic Calculator     |\n");
-    printf("\t\t\t\t :---------------------------:\n" RESET);
+    printf(BLUE "\t\t\t\t :---------------------------: \n");
+    printf("\t\t\t\t |      Basic Calculator     | \n");
+    printf("\t\t\t\t :---------------------------: \n" RESET);
 }
 
 // PRINT CHOICES
 void choices()
 {
-    printf(" 1. Addition \n 2. Subtraction \n 3. Multiplication \n 4. Division\n 5. Exit\n");
+    printf(" 1. Addition\t\t(+) \n 2. Subtraction\t\t(-) \n 3. Multiplication\t(*) \n 4. Division\t\t(/) \n 5. Exit\n");
 }
 
 // PAUSE THE SCREEN
