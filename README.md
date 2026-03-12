@@ -1,8 +1,14 @@
 # Basic Calculator in C
-
-Features:
-- Addition 
-- Subtraction 
-- Multiplication
-- Division
-- Operation history
+- Simple Calculator written in c.
+---
+## Features:
+- Can perform basic operations: 
+    - Addition 
+    - Subtraction 
+    - Multiplication
+    - Division
+- Show previous Operation history
+- Colored Terminal User Interface
+---
+## Author 
+Shlok Kumar
