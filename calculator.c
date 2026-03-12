@@ -12,6 +12,7 @@
 void header();
 void choices();
 void pause();
+void clear();
 int basic_operation(int choice, float num1, float num2, float *result);
 int main()
 {
@@ -83,6 +84,8 @@ int main()
         printf(GREEN "Result: %.2f \n\n" RESET, result);
         // PAUSE THE SCREEN
         pause();
+        // CLEAR THE SCREEN
+        clear();
     }
     return 0;
 }
@@ -107,6 +110,19 @@ void pause()
     printf("Press enter to continue: ");
     getchar();
     getchar();
+}
+
+// CLEAR THE SCREEN
+void clear()
+{
+    if (_WIN32)
+    {
+        system("cls");
+    }
+    else
+    {
+        system("clear");
+    }
 }
 
 // BASIC OPERATIONS
