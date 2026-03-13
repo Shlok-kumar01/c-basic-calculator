@@ -61,9 +61,9 @@ int main()
         }
 
         // READ FIRST AND SECOND NUMBER
-        printf("enter first num: ");
+        printf("Enter first num: ");
         scanf("%f", &num1);
-        printf("enter second num: ");
+        printf("Enter second num: ");
         scanf("%f", &num2);
 
         // BASIC OPERATION CONDITION
